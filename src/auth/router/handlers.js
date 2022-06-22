@@ -31,7 +31,7 @@ async function handleSignin(req, res, next) {
 
 async function handleGetUsers(req, res, next) {
   try {
-    const userRecords = await Users.findAll({});
+    const userRecords = await users.findAll({});
     const list = users.map(user => user.username);
     res.status(200).json(list);
   } catch (e) {
@@ -41,7 +41,7 @@ async function handleGetUsers(req, res, next) {
 }
 
 function handleSecret(req, res, next) {
-  res.status(200).text("Welcome to the secret area!");
+  res.status(200).send("Welcome to the secret area!");
 }
 
 module.exports = {
