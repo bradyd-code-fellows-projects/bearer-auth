@@ -1,11 +1,9 @@
 'use strict';
 
+const { startup } = require('./server.js');
 // Start up DB Server
 const { db } = require('./src/auth/models/index.js');
 db.sync()
-  .then(() => {
-
-    // Start the web server
-    require('./src/server.js').start(process.env.PORT);
-  });
-
+  .then(() => { console.log('successfully connected to db') })
+  .catch ((e) => console.error(e.message));
+startup();
