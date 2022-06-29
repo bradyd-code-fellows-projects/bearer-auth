@@ -1,10 +1,10 @@
 'use strict';
 
-process.env.SECRET = 'TEST_SECRET';
+const SECRET = process.env.SECRET || 'TEST_SECRET';
 
-const { db } = require('../../../../src/auth/models/index');
+const { db } = require('../../../../src/auth/models');
 const supertest = require('supertest');
-const server = require('../../../../src/server');
+const server = require('../../../../src/server').server;
 
 const mockRequest = supertest(server);
 
